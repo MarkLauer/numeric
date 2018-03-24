@@ -1,0 +1,8 @@
+.nav {
+    border-bottom: 1px solid #eee;
+}
+
+.nav > ul {
+    list-style: none;
+    padding: 0;
+}

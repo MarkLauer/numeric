@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>Numeric</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<script src="../static/index.js"></script>
+<div class="page">
+    <h1>Вычислительные методы</h1>
+    <nav class="nav">
+        <ul>
+            <li><a href="{{ url_for('lab_view', lab='max_eigenvalue') }}">Нахождение максимального собственного числа матрицы</a></li>
+            <li><a href="{{ url_for('lab_view', lab='square_roots_method') }}">Метод квадратных корней СЛАУ</a></li>
+            <li><a href="{{ url_for('lab_view', lab='gauss_quadrature') }}">Квадратурная формула Гаусса</a></li>
+            <li><a href="{{ url_for('lab_view', lab='danilevsky') }}">Собственные числа и векторы по Данилевскому</a></li>
+        </ul>
+    </nav>
+    {% block body %}{% endblock %}
+</div>
