@@ -1,6 +1,6 @@
-function ajax(url, data, success, error) {
+function ajax(method, url, data, success, error) {
     var request = new XMLHttpRequest();
-    request.open('POST', url, true);
+    request.open(method, url, true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 
     request.onload = function () {
@@ -60,7 +60,7 @@ function parseMatrix(elements) {
 function maxEigenvalue(event) {
     event.preventDefault();
 
-    ajax('/max_eigenvalue', {matrix: parseMatrix(event.target.elements)}, function (responseText) {
+    ajax('POST', '/max_eigenvalue', {matrix: parseMatrix(event.target.elements)}, function (responseText) {
         document.getElementById('result').innerText = JSON.parse(responseText).result;
     }, function (status) {
         console.log('server reached, but error returned', status);
@@ -70,7 +70,7 @@ function maxEigenvalue(event) {
 function danilevsky(event) {
     event.preventDefault();
 
-    ajax('/danilevsky', {matrix: parseMatrix(event.target.elements)}, function (responseText) {
+    ajax('POST', '/danilevsky', {matrix: parseMatrix(event.target.elements)}, function (responseText) {
         var result = JSON.parse(responseText).result;
 
         var eigenvaluesElement = document.getElementById('eigenvalues');
